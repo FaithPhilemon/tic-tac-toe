@@ -1,22 +1,24 @@
 <?php
-require_once "templates/header.php";
-
+require_once "functions.php";
 if (! playersRegistered()) {
-    header("location: index.php");
+    header("Location: index.php");
 }
 
 if ($_POST['cell']) {
     $win = play($_POST['cell']);
 
     if ($win) {
-        header("location: result.php?player=" . getTurn());
+        header("Location: result.php?player=" . getTurn());
+        //echo '<script type="text/javascript"> document.location = "result.php?player="' . getTurn().'"; </script>';
     }
 }
 
 if (playsCount() >= 9) {
-    header("location: result.php");
+    header("Location: result.php");
 }
 ?>
+
+<?php require_once "templates/header.php"; ?>
 
 <h2><?php echo currentPlayer() ?>'s turn</h2>
 
