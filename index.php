@@ -1,6 +1,15 @@
 <?php require_once "./includes/header.php"; ?>
 
-<form method="post" action="register-players.php">
+<?php 
+    registerPlayers($_POST['player-x'], $_POST['player-o']);
+
+    if (playersRegistered()) {
+        header("location: play.php");
+}
+
+?>
+
+<form method="post" action="index.php">
     <div class="welcome">
         <h1>Start playing Tic Tac Toe!</h1>
         <h2>Please fill in your names</h2>
