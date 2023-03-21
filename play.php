@@ -1,5 +1,5 @@
 <?php
-require_once "functions.php";
+require_once "includes/functions.php";
 if (! playersRegistered()) {
     header("Location: index.php");
 }
@@ -9,7 +9,6 @@ if ($_POST['cell']) {
 
     if ($win) {
         header("Location: result.php?player=" . getTurn());
-        //echo '<script type="text/javascript"> document.location = "result.php?player="' . getTurn().'"; </script>';
     }
 }
 
@@ -83,3 +82,5 @@ if (playsCount() >= 9) {
 
 <?php
 require_once "includes/footer.php";
+
+
