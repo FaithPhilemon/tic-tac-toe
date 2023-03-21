@@ -18,7 +18,7 @@ if (playsCount() >= 9) {
 }
 ?>
 
-<?php require_once "templates/header.php"; ?>
+<?php require_once "includes/header.php"; ?>
 
 <h2><?php echo currentPlayer() ?>'s turn</h2>
 
@@ -82,4 +82,4 @@ if (playsCount() >= 9) {
 </script>
 
 <?php
-require_once "templates/footer.php";
+require_once "includes/footer.php";

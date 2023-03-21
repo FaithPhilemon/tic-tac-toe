@@ -1,4 +1,4 @@
-<?php require_once "./templates/header.php"; ?>
+<?php require_once "./includes/header.php"; ?>
 
 <form method="post" action="register-players.php">
     <div class="welcome">
@@ -19,4 +19,4 @@
     </div>
 </form>
 
-<?php require_once "./templates/footer.php";
+<?php require_once "./includes/footer.php";
