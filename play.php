@@ -26,47 +26,66 @@ if (playsCount() >= 9) {
     <table class="tic-tac-toe" cellpadding="0" cellspacing="0">
         <tbody>
 
-        <?php
-        $lastRow = 0;
-        for ($i = 1; $i <= 9; $i++) {
-            $row = ceil($i / 3);
+        <?php 
+            $cell_count = 1;
+            for ($row=1; $row <= 3; $row++) {
 
-            if ($row !== $lastRow) {
-                $lastRow = $row;
-
-                if ($i > 1) {
-                    echo "</tr>";
-                }
-
-                echo "<tr class='row-{$row}'>";
-            }
-
-            $additionalClass = '';
-
-            if ($i == 2 || $i == 8) {
-                $additionalClass = 'vertical-border';
-            }
-            else if ($i == 4 || $i == 6) {
-                $additionalClass = 'horizontal-border';
-            }
-            else if ($i == 5) {
-                $additionalClass = 'center-border';
-            }
-            ?>
-
-            <td class="cell-<?= $i ?> <?= $additionalClass ?>">
-                <?php if (getCell($i) === 'x'): ?>
-                    X
-                <?php elseif (getCell($i) === 'o'): ?>
-                    O
-                <?php else: ?>
-                    <input type="radio" name="cell" value="<?= $i ?>" onclick="enableButton()"/>
-                <?php endif; ?>
-            </td>
-
+                echo '<tr>';
+                    for ($cell=1; $cell <= 3; $cell++) {
+                        echo '<td>
+                                <input type="radio"  name="cell_'.$cell_count.'">
+                            </td>';
+                            $cell_count++;
+                    }
+                echo '</tr>';
+               
+                ?>
+               
         <?php } ?>
 
-        </tr>
+            <!-- <tr class='row-1'>
+                <td class="cell-1 ">
+                    <input type="radio" name="cell" value="1" onclick="enableButton()"/>
+                </td>
+            
+                <td class="cell-2 vertical-border">
+                        <input type="radio" name="cell" value="2" onclick="enableButton()"/>
+                </td>
+            
+                <td class="cell-3 ">
+                    <input type="radio" name="cell" value="3" onclick="enableButton()"/>
+                </td>
+
+            </tr>
+            
+            <tr class='row-2'>
+                <td class="cell-4 horizontal-border">
+                        <input type="radio" name="cell" value="4" onclick="enableButton()"/>
+                </td>
+
+                <td class="cell-5 center-border">
+                    <input type="radio" name="cell" value="5" onclick="enableButton()"/>
+                </td>
+            
+                <td class="cell-6 horizontal-border">
+                    <input type="radio" name="cell" value="6" onclick="enableButton()"/>
+                </td>
+
+            </tr>
+            
+            <tr class='row-3'>
+                <td class="cell-7 ">
+                    <input type="radio" name="cell" value="7" onclick="enableButton()"/>
+                </td>
+            
+                <td class="cell-8 vertical-border">
+                    <input type="radio" name="cell" value="8" onclick="enableButton()"/>
+                </td>
+            
+                <td class="cell-9 ">
+                    <input type="radio" name="cell" value="9" onclick="enableButton()"/>
+                </td>
+            </tr> -->
         </tbody>
     </table>
 
