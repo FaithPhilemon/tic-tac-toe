@@ -30,11 +30,11 @@ if (playsCount() >= 9) {
             $cell_count = 1;
             for ($row=1; $row <= 3; $row++) {
 
-                echo '<tr>';
+                echo "<tr class='row-$row'>";
                     for ($cell=1; $cell <= 3; $cell++) {
-                        echo '<td>
-                                <input type="radio"  name="cell_'.$cell_count.'">
-                            </td>';
+                        echo "<td class='cell-$cell_count'>
+                                <input type='radio'  name='cell' value='$cell_count' onclick='enableButton()'>
+                            </td>";
                             $cell_count++;
                     }
                 echo '</tr>';
