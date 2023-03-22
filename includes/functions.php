@@ -6,6 +6,10 @@ error_reporting(E_ERROR | E_PARSE);
 function registerPlayers($playerX="", $playerO="") {
     $_SESSION['PLAYER_X_NAME'] = $playerX;
     $_SESSION['PLAYER_O_NAME'] = $playerO;
+
+    // TODO:
+
+    // Call the setTurn(), resetBoard(), resetWins(); functions
     setTurn('x');
     resetBoard();
     resetWins();
@@ -87,8 +91,7 @@ function play($cell='') {
 
     if (! $win) {
         switchTurn();
-    }
-    else {
+    }else {
         markWin(getTurn());
         resetBoard();
     }

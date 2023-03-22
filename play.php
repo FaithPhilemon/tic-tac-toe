@@ -1,9 +1,13 @@
 <?php
+// Include functions
 require_once "includes/functions.php";
+
+// redirect to play page if players are registered
 if (! playersRegistered()) {
-    header("Location: index.php");
+    header("location: index.php");
 }
 
+// send a "box selection" to play function
 if ($_POST['cell']) {
     $win = play($_POST['cell']);
 
@@ -12,6 +16,7 @@ if ($_POST['cell']) {
     }
 }
 
+// redirect to result page if number of plays is equal to or greater than 9
 if (playsCount() >= 9) {
     header("Location: result.php");
 }
@@ -32,16 +37,27 @@ if (playsCount() >= 9) {
 
                 echo "<tr class='row-$row'>";
                     for ($cell=1; $cell <= 3; $cell++) {
-                        echo "<td class='cell-$cell_count'>
+
+                        $additional_class = '';
+                        if ($cell_count == 2 || $cell_count == 8) {
+                            $additional_class = 'vertical-border';
+                        }else if ($cell_count == 4 || $cell_count == 6) {
+                            $additional_class = 'horizontal-border';
+                        }else if ($cell_count == 5) {
+                            $additional_class = 'center-border';
+                        }
+
+                        echo "<td class='cell-$cell_count $additional_class'>
                                 <input type='radio'  name='cell' value='$cell_count' onclick='enableButton()'>
                             </td>";
                             $cell_count++;
                     }
                 echo '</tr>';
+
+
+                
                
-                ?>
-               
-        <?php } ?>
+          } ?>
 
             <!-- <tr class='row-1'>
                 <td class="cell-1 ">
@@ -99,7 +115,4 @@ if (playsCount() >= 9) {
     }
 </script>
 
-<?php
-require_once "includes/footer.php";
-
-
+<?php require_once "includes/footer.php"; ?>
