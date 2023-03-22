@@ -1,11 +1,26 @@
+<!-- 
+ A Tic-Tac-Toe game
+ Players 'X' and 'O' take turn inputing their position on the form 
+ using radio buttons that represents the numbers 1-9.
+
+ 1 | 2 | 3
+ ---------
+ 4 | 5 | 6
+ ---------
+ 7 | 8 | 9
+-->
+
+<!-- Include header -->
 <?php require_once "./includes/header.php"; ?>
 
 <?php 
+    // register players
     registerPlayers($_POST['player-x'], $_POST['player-o']);
 
+    // redirect to play page if players are registered
     if (playersRegistered()) {
         header("location: play.php");
-}
+    }
 
 ?>
 
@@ -27,5 +42,5 @@
         <button type="submit">Start</button>
     </div>
 </form>
-
+<!-- Include footer -->
 <?php require_once "./includes/footer.php";
