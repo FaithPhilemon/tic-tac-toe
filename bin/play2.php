@@ -1,23 +1,20 @@
 <?php
+require_once "../includes/functions.php";
 
-for ($i=1; $i <= 9; $i++) { 
-    $_SESSION["cell_$i"] = '';
-}
+// resetBoard();
+// session_destroy();
 
-// $_SESSION['plays'];
-// exit(print_r($_SESSION));
+// exit("Session Destryoed");
+
 if (isset($_POST["submit"])){
         // get the box selected and save to sessions
-        // exit(print_r($_POST));
-
         for ($i=1; $i <= 9; $i++) { 
             if (isset($_POST["cell_$i"])){
+                // $_POST["submit"]
                 $_SESSION["cell_$i"] = "x";
                 $userbox = $i;
             }
         }
-        // $_SESSION['plays']++;
-
         // system generates its own box and save to sessions
         $systembox = rand(1, 9);
         if($systembox != $userbox){
@@ -26,41 +23,25 @@ if (isset($_POST["submit"])){
             $systembox = rand(1, 9);
             $_SESSION["cell_$systembox"] = "o";
         }
-        // $_SESSION['plays']++;
-
-        // exit(print_r($_SESSION));
-        // echo ("We got here...");
+      
 		if(($_SESSION["cell_1"] == 'x' && $_SESSION["cell_2"] == 'x' && $_SESSION["cell_3"] == 'x')  || ($_SESSION["cell_4"] == 'x' && $_SESSION["cell_5"] == 'x' && $_SESSION["cell_6"] == 'x') || ($_SESSION["cell_7"] == 'x' && $_SESSION["cell_8"] == 'x' && $_SESSION["cell_9"] == 'x') || ($_SESSION["cell_1"] == 'x' && $_SESSION["cell_4"] == 'x' && $_SESSION["cell_7"] == 'x')  || ($_SESSION["cell_2"] == 'x' && $_SESSION["cell_5"] == 'x' && $_SESSION["cell_8"] == 'x') || ($_SESSION["cell_3"] == 'x' && $_SESSION["cell_6"] == 'x' && $_SESSION["cell_9"] == 'x') || ($_SESSION["cell_1"] == 'x' && $_SESSION["cell_5"] == 'x' && $_SESSION["cell_9"] == 'x') || ($_SESSION["cell_3"] == 'x' && $_SESSION["cell_5"] == 'x' && $_SESSION["cell_7"] == 'x')){
 			$winner = 'x';
-			Print "<h1>X Wins!</h1>";
-            // resetBoard();
-            echo "XXXX";
+			Print "<h2>X Wins!</h2>";
 
 		}elseif(($_SESSION["cell_1"] == 'o' && $_SESSION["cell_2"] == 'o' && $_SESSION["cell_3"] == 'o')  || ($_SESSION["cell_4"] == 'o' && $_SESSION["cell_5"] == 'o' && $_SESSION["cell_6"] == 'o') || ($_SESSION["cell_7"] == 'o' && $_SESSION["cell_8"] == 'o' && $_SESSION["cell_9"] == 'o') || ($_SESSION["cell_1"] == 'o' && $_SESSION["cell_4"] == 'o' && $_SESSION["cell_7"] == 'o')  || ($_SESSION["cell_2"] == 'o' && $_SESSION["cell_5"] == 'o' && $_SESSION["cell_8"] == 'o') || ($_SESSION["cell_3"] == 'o' && $_SESSION["cell_6"] == 'o' && $_SESSION["cell_9"] == 'o') || ($_SESSION["cell_1"] == 'o' && $_SESSION["cell_5"] == 'o' && $_SESSION["cell_9"] == 'o') || ($_SESSION["cell_3"] == 'o' && $_SESSION["cell_5"] == 'o' && $_SESSION["cell_7"] == 'o')){
             $winner = 'o';
-            Print "<h1>O Wins!</h1>";
-            // resetBoard();
-            echo "OOOO";
+            Print "<h2>O Wins!</h2>";
 		}
 }
 
-
-
-// redirect to result page if number of plays is equal to or greater than 9
-// if ($_SESSION['plays'] >= 9) {
-//     header("Location: result.php");
-// }
-
-
-// echo("We got here...");
 // exit(print_r($_SESSION));
 ?>
 
-<?php require_once "includes/header.php"; ?>
+<?php require_once "../includes/header.php"; ?>
 
 <h2>Play Tic-Tac-Toe</h2>
 
-<form method="post" action="play.php">
+<form method="post" action="play2.php">
 
     <table class="tic-tac-toe" cellpadding="0" cellspacing="0">
         <tbody>
@@ -87,7 +68,7 @@ if (isset($_POST["submit"])){
                             }elseif (getCell($cell_count) == 'o'){
                                 echo "O";
                             }else{
-                                echo "<input type='radio'  name='cell_$cell_count' value='cell_$cell_count'>";
+                                echo "<input type='radio'  name='cell_$cell_count' value='$cell_count'>";
                             }
                             $cell_count++;
                     }
@@ -155,4 +136,4 @@ if (isset($_POST["submit"])){
 
 </form>
 
-<?php require_once "includes/footer.php"; ?>
+<?php require_once "../includes/footer.php"; ?>

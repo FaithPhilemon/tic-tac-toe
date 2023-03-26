@@ -82,5 +82,51 @@ if (playsCount() >= 9) {
 
 <?php
 require_once "includes/footer.php";
+?>
+
+
+ <!-- <tr class='row-1'>
+                <td class="cell-1 ">
+                    <input type="radio" name="cell" value="1" onclick="enableButton()"/>
+                </td>
+            
+                <td class="cell-2 vertical-border">
+                        <input type="radio" name="cell" value="2" onclick="enableButton()"/>
+                </td>
+            
+                <td class="cell-3 ">
+                    <input type="radio" name="cell" value="3" onclick="enableButton()"/>
+                </td>
+
+            </tr>
+            
+            <tr class='row-2'>
+                <td class="cell-4 horizontal-border">
+                        <input type="radio" name="cell" value="4" onclick="enableButton()"/>
+                </td>
+
+                <td class="cell-5 center-border">
+                    <input type="radio" name="cell" value="5" onclick="enableButton()"/>
+                </td>
+            
+                <td class="cell-6 horizontal-border">
+                    <input type="radio" name="cell" value="6" onclick="enableButton()"/>
+                </td>
+
+            </tr>
+            
+            <tr class='row-3'>
+                <td class="cell-7 ">
+                    <input type="radio" name="cell" value="7" onclick="enableButton()"/>
+                </td>
+            
+                <td class="cell-8 vertical-border">
+                    <input type="radio" name="cell" value="8" onclick="enableButton()"/>
+                </td>
+            
+                <td class="cell-9 ">
+                    <input type="radio" name="cell" value="9" onclick="enableButton()"/>
+                </td>
+            </tr> -->
 
 
