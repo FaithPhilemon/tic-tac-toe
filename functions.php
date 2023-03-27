@@ -3,16 +3,6 @@
 session_start();
 error_reporting(E_ERROR | E_PARSE);
 
-function resetBoard() {
-    for ( $i = 1; $i <= 9; $i++ ) {
-        unset($_SESSION['cell_' . $i]);
-    }
-}
-
-function playsCount() {
-    return $_SESSION['PLAYS'] ? $_SESSION['PLAYS'] : 0;
-}
-
 function play() {
      // get the box selected and save to sessions
      for ($i=1; $i <= 9; $i++) { 
@@ -40,5 +30,15 @@ function play() {
 
 function getCell($cell='') {
     return $_SESSION['cell_' . $cell];
+}
+
+function resetBoard() {
+    for ( $i = 1; $i <= 9; $i++ ) {
+        unset($_SESSION['cell_' . $i]);
+    }
+}
+
+function playsCount() {
+    return $_SESSION['PLAYS'] ? $_SESSION['PLAYS'] : 0;
 }
 
