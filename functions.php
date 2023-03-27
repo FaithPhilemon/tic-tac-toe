@@ -38,7 +38,4 @@ function resetBoard() {
     }
 }
 
-function playsCount() {
-    return $_SESSION['PLAYS'] ? $_SESSION['PLAYS'] : 0;
-}
 
