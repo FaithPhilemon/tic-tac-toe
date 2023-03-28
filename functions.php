@@ -3,6 +3,8 @@
 session_start();
 error_reporting(E_ERROR | E_PARSE);
 
+// Do not edit the above code
+
 function play() {
     /*  The purpose of this function is to execute the game-play which should happen in the following steps:
 
@@ -96,14 +98,36 @@ function play() {
     }
 }
 
-function getCell($cell='') {
-    return $_SESSION['cell_' . $cell];
-}
+/*
+    The job of the following function is to reset the board, technically this means clearing  
+    all the sessions created to save the cell numbers during the game.
 
+    By the end of each round of the game, which should be when we'll call this function, 
+    we should have the following session variables active.
+
+    $_SESSION['cell_1]
+    $_SESSION['cell_2]
+    $_SESSION['cell_3]
+    $_SESSION['cell_4]
+    $_SESSION['cell_5]
+    $_SESSION['cell_6]
+    $_SESSION['cell_7]
+    $_SESSION['cell_8]
+    $_SESSION['cell_9]
+
+    To clear a session variable simply call the unset() buil-in function.
+    For example unset($_SESSION['cell_1]) will clear the $_SESSION['cell_1] session variable.
+
+    TODO:
+    Use for-loop inside the following function clear all the above listed sessions using the unset() function
+    so you wouldnt have to do it 9 times.
+*/
 function resetBoard() {
     for ( $i = 1; $i <= 9; $i++ ) {
         unset($_SESSION['cell_' . $i]);
     }
 }
 
-
+function getCell($cell='') {
+    return $_SESSION['cell_' . $cell];
+}
