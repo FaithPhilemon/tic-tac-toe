@@ -1,7 +1,10 @@
 <?php
+// Do not edit the next line
 require_once "functions.php";
 
+// the if statement below checks if data has been posted from the form
 if (isset($_POST["submit"])){
+    // TODO: call the play function here and assign it to a variable called $winner_message
     $winner_message = play();
 }
 
@@ -26,6 +29,16 @@ if (isset($_POST["submit"])){
                 <table class="tic-tac-toe" cellpadding="0" cellspacing="0">
                     <tbody>
                     <?php 
+                        /* TODO: Use for-loop to generate the rows and columns of the table below in the following tips:
+
+                            1. Use the cell postions to determine where to call the vertical-border, horizontal-border and
+                                center-border CSS classes to produce the grid lines.
+
+                            2. Use the getCell() function to determine a marked box so you can display x or an o mark
+                            depending on which of the players marked the cell. Display the form input when the cell is unmarked.
+
+
+                        */
                         $cell_count = 1;
                         for ($row=1; $row <= 3; $row++) {
 
@@ -59,7 +72,9 @@ if (isset($_POST["submit"])){
                 </table>
 
                 <?php 
-
+                    /* the following if statement will check if a winner has been found
+                        DO NOT EDIT;
+                    */
                     if($winner_message != ''){
                         resetBoard();
                         echo '<a href="index.php" style="color: #ff3111; font-weight: bold">Play Again</a>';
