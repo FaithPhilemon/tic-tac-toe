@@ -57,11 +57,7 @@ function play() {
 
     $system_cell = rand(1, 9);
     for ($i=1; $i <= 9; $i++) { 
-        if($system_cell != $user_cell){
-            $_SESSION["cell_$system_cell"] = "o";
-            break;
-        }else{
-            $system_cell = rand(1, 9);
+        if($system_cell != $_SESSION["cell_$i"]){
             $_SESSION["cell_$system_cell"] = "o";
             break;
         }
